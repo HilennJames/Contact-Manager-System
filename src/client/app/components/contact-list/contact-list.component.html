@@ -1,0 +1,14 @@
+<div>
+<table  class="ui celled teal table" >
+
+  <thead class="ui celled ">
+  <th class="name">Name </th>
+  <th class="address" >Address</th>
+  <th class="phone" >Phone</th>
+  <th class="image" >Picture</th>
+  <th class="actions">Actions</th>
+  </thead>
+  <tbody app-contact *ngFor="let contact of contacts" [contact]="contact" >
+  </tbody>
+</table>
+</div>

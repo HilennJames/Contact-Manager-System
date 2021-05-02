@@ -1,0 +1,26 @@
+[
+  {
+  "name": "Alice Chavez",
+  "address" :"6 Graby Drive Topek, KS 84739",
+  "phone": "(455) 595-4251",
+  "photoUrl": " a picture of a person "
+  },
+  {
+    "name": "Greg Pita",
+    "address" :"Diamond Vale DM 84739",
+    "phone": "(115) 125-4891",
+    "photoUrl": " a picture of a person "
+  },
+  {
+    "name": "Jetty Jones",
+    "address" :"Trinidad, California 84739",
+    "phone": "(445) 511-4371",
+    "photoUrl": " a picture of a person "
+  },
+  {
+    "name": "John Chavez",
+    "address" :"6 Graby Lesni, PA 84739",
+    "phone": "(485) 195-4111",
+    "photoUrl": " a picture of a person "
+  }
+]
