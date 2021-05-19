@@ -47,4 +47,5 @@ proxy.conf.json
 # System Files
 .DS_Store
 Thumbs.db
+src/server/DatabaseConnection.js
 

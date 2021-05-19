@@ -9,7 +9,8 @@ export class Contact {
 
 export class ContactResponse extends Contact{
   constructor(
-    public id: any[],
+    // tslint:disable-next-line:variable-name
+    public _id: any[],
     public name: string = null,
     public address: string = null,
     public phone: string = null,

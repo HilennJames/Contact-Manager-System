@@ -1,27 +1,38 @@
-<div class="ui form form">
-  <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
-    <div class="two fields">
-      <label>First Name</label>
+<div>
+  <form  class=" ui form" #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+    <table  class="ui celled teal table" >
+    <thead class="ui celled ">
+    <th class="name">Name </th>
+    <th class="address" >Address</th>
+    <th class="phone max" >Phone</th>
+    <th class="image" >Picture</th>
+    <th class="actions">Actions</th>
+    </thead>
+      <tbody>
+<tr>
+    <td class="two fields">
+      <div class="max">
       <input type="text" placeholder="First Name" name="firstName" ngModel/>
-      <label>Last Name</label>
       <input type="text" placeholder="Last Name" name="lastName" ngModel/>
-    </div>
-    <div  class="form-section">
-      <label>Address</label>
+      </div>
+    </td>
+    <td class="field">
       <input type="text" placeholder="Address" name="address" ngModel/>
-    </div>
-    <div  class="three fields">
-      <label>Phone</label>
+    </td>
+    <td class="three fields max">
       <input type="text"  maxlength="5" placeholder="(###)" name="areaCode" ngModel/>
-      <label>&nbsp;</label>
       <input type="text"  maxlength="4" placeholder="###" name="prefix" ngModel/>
-      <label>&nbsp;</label>
       <input type="text" maxlength="4" placeholder="###" name="lineNumber" ngModel/>
-    </div>
-    <div  class="field">
-      <label>Image</label>
-      <input type="file" placeholder="upload image" name="photoUrl" ngModel/>
-    </div>
-    <button type="submit" class="ui primary button" >Save</button>
+    </td>
+    <td class="field max">
+      <input type="file" placeholder="upload image" name="photoUrl" (change)="uploadFile($event)"/>
+    </td>
+  <td>
+    <button type="submit" class="ui teal button" >Save</button>
+  </td>
+</tr>
+      </tbody>
+    </table>
   </form>
 </div>
+

@@ -1,7 +1,13 @@
-//import { }from '../controller/AuthController.mjs';
+import { AuthenticateUser  }from '../controller/AuthController.mjs';
 
-const routes = (server) => {
+export const authRoutes = (server) => {
 
-  server.route('/authenticate')
-    .post()
+  server.route('/api/authenticate')
+    .post(
+      (req,res,next, err) =>
+      {console.log(req);
+        console.log(err),
+          next()
+      },AuthenticateUser)
 }
+

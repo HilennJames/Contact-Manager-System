@@ -1,13 +1,19 @@
 <div>
-  <header class="ui icon header" >
+  <header class="ui icon teal header" >
     <i class="sitemap icon"> Contact Manager</i>
   </header>
-<div class="ui tabular menu">
+<div class="ui secondary menu">
   <div class="active item">
-    <a [routerLink]="['/contacts']">Back to contacts</a>
+    <a [routerLink]="['/contacts']">Contacts  <i class="address book icon"></i></a>
   </div>
   <div class="active item">
-    <a [routerLink]="['/new']"> add contact</a>
+    <a [routerLink]="['/new']"> Add Contact  <i class="user plus white icon"></i></a>
+  </div>
+  <div class="ui item float right">
+    <div class="active item">
+      <a [routerLink]="['/login']">Logout <i class="arrow alternate circle right icon"></i></a>
+    </div>
   </div>
 </div>
 </div>
+

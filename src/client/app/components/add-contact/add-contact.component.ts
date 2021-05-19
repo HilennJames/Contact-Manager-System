@@ -10,25 +10,34 @@ import {ApiService} from '../../shared/api.service';
   styleUrls: ['./add-contact.component.scss']
 })
 export class AddContactComponent implements OnInit {
-  // tslint:disable-next-line:ban-types
-  loading: Boolean = false;
+  loading = false;
   newContact: Contact | Observable<Contact> | undefined;
+  selectedFile: File = null;
 
   constructor( private apiService: ApiService) { }
 
   ngOnInit(): void {
   }
 
+  // tslint:disable-next-line:typedef
+  uploadFile(event){
+    this.selectedFile = event.target.files[0];
+   }
+
   onSubmit(form: NgForm): void{
     this.loading = true;
     const formValues = Object.assign({}, form.value);
+
     const contact: Contact = {
       name: `${formValues.firstName} ${formValues.lastName}`,
       address : formValues.address,
       phone: `${formValues.areaCode}${formValues.prefix}-${formValues.lineNumber}`,
-      photoUrl: `${formValues.photoUrl}`
+      photoUrl: this.selectedFile.name
     };
+    console.log(contact);
+    console.log(this.selectedFile);
     this.apiService.addContact(contact)
       .subscribe((result) => console.log(result));
   }
+
 }

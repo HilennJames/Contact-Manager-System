@@ -6,11 +6,12 @@ import {
   updateContact
 }from '../controller/CM.controller.mjs';
 
-const routes = (server) => {
+
+export const routes = (server) => {
   //All contacts
     server.route('/api/contacts')
       .get(( req, res, next)=> {
-        console.log('The route is working')
+        console.log('The route is working'),
       next()
       },getAllContacts)
 
@@ -41,5 +42,6 @@ const routes = (server) => {
     //GET SPECIFIC ID
     //PUT UPDATE
     //DELETE
+
 }
-export default routes;
+

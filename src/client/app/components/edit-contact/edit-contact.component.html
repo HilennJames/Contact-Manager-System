@@ -1,0 +1,44 @@
+<div>
+  <form class="edit ui form" #editForm="ngForm"  (ngSubmit)="onSubmit(editForm)">
+  <table  class="ui celled teal table" >
+
+    <thead class="ui celled ">
+    <th class="name">Name </th>
+    <th class="address" >Address</th>
+    <th class="phone" >Phone</th>
+    <th class="image" >Picture</th>
+    <th class="actions">Actions</th>
+    </thead>
+
+
+        <tbody>
+              <tr>
+                <td data-label="name"  class="field">
+                  <input placeholder="Jack" name="name" ngModel />
+                </td>
+                <td data-label="address" class="field" >
+                  <input placeholder="lesni 51" name="address" ngModel />
+                </td>
+                <td data-label="phone" class="field">
+                  <input placeholder="Jack" name="name" ngModel/>
+                </td>
+                <td data-label="pic"class="field">
+                  <input placeholder="image" name="name" ngModel />
+                </td>
+                <td><button type="submit" class="ui teal button"><i class="save white icon"></i></button></td>
+              </tr>
+        </tbody>
+  </table>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+

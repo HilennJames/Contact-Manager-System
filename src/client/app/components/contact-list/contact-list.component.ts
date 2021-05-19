@@ -3,7 +3,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { ApiService } from '../../shared/api.service';
-import { ContactResponse} from '../../core/update-contact';
+import { ContactResponse} from '../../core/contact-response';
 import { map } from 'rxjs/operators';
 
 
@@ -21,7 +21,6 @@ export class ContactListComponent implements OnInit {
 
   ngOnInit(): void {
     this.listContacts();
-    console.log(this.contacts);
   }
 
   listContacts(): any {
@@ -32,6 +31,6 @@ export class ContactListComponent implements OnInit {
         this.contacts = res;
       } );
   }
-  // the  event will be th the child component
+  // the  event will be in the child component
 
 }
