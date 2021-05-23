@@ -1,5 +1,5 @@
 <div>
-  <form  class=" ui form" #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+  <form enctype="multipart/form-data" class=" ui form" [formGroup]="Addcontactform" (ngSubmit)="onSubmit()" >
     <table  class="ui celled teal table" >
     <thead class="ui celled ">
     <th class="name">Name </th>
@@ -11,21 +11,26 @@
       <tbody>
 <tr>
     <td class="two fields">
-      <div class="max">
-      <input type="text" placeholder="First Name" name="firstName" ngModel/>
-      <input type="text" placeholder="Last Name" name="lastName" ngModel/>
+      <div class="max" width="100">
+      <input type="text"  placeholder="First Name" name="firstName" formControlName="firstName"/>
+      </div>
+      <div class="max"  width="100" >
+      <input type="text" placeholder="Last Name" name="lastName" formControlName="lastName"/>
       </div>
     </td>
-    <td class="field">
-      <input type="text" placeholder="Address" name="address" ngModel/>
+    <td class="field" width="600">
+      <input type="text" placeholder="Address" name="address" formControlName="address"/>
     </td>
-    <td class="three fields max">
-      <input type="text"  maxlength="5" placeholder="(###)" name="areaCode" ngModel/>
-      <input type="text"  maxlength="4" placeholder="###" name="prefix" ngModel/>
-      <input type="text" maxlength="4" placeholder="###" name="lineNumber" ngModel/>
+    <td class="pad" width="195">
+      <div class="three fields max">
+      <input type="text"  maxlength="5" placeholder="(###)" name="areaCode" formControlName="areaCode"/>
+      <input type="text"  maxlength="4" placeholder="###" name="prefix" formControlName="prefix"/>
+      <input type="text" maxlength="4" placeholder="###" name="lineNumber" formControlName="lineNumber"/>
+      </div>
     </td>
     <td class="field max">
-      <input type="file" placeholder="upload image" name="photoUrl" (change)="uploadFile($event)"/>
+      <input type="file" placeholder="upload image"  formControlName="photoUrl"
+             name="photoUrl" (change)="uploadFile($event)"/>
     </td>
   <td>
     <button type="submit" class="ui teal button" >Save</button>

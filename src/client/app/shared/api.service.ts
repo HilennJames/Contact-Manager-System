@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient , HttpHeaders } from '@angular/common/http';
 import { Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
-import { map } from 'rxjs/operators';
-import {Contact} from '../core/contact';
+import {catchError, map} from 'rxjs/operators';
+import {Contact} from '../core/contact-response';
 import {ContactResponse} from '../core/contact-response';
 
 
@@ -14,7 +14,7 @@ export class ApiService {
   public datacopy = [];
 
   public headers = new HttpHeaders()
-  .set('content-type', 'application/json')
+  .set('Enctype', 'multipart/form-data' )
   .set('Access-Control-Allow-Origin', '*');
   constructor(public http: HttpClient) { }
 
@@ -26,18 +26,40 @@ export class ApiService {
       ));
   }
 
+  public getContact(id: any): Observable<Contact[]>{
+    const url = `${this.baseUrl}/contact/${id}`;
+    return this.http.get<Contact[]>(url, {headers: this.headers})
+      .pipe(
+        map( (response ) =>
+          this.datacopy = response
+        ));
+  }
+
   public addContact(query: object): Observable<any>{
     console.log(query);
-    return this.http.post(this.baseUrl + '/contact', query, {headers: this.headers}).pipe(
+    return this.http.post(
+      this.baseUrl + '/contact',
+      query,
+      {headers: this.headers}
+      ).pipe(
       map( response => response)
     );
   }
   public deleteContact(id: string): Observable<any>{
-    return this.http.delete(this.baseUrl + '/contact/' + '/contact' + id);
+  console.log('inside service');
+  return this.http.delete(
+      this.baseUrl + '/contact/'  + id,
+      {headers: this.headers}).pipe(
+    catchError(this.handleError('deleteHero'))
+  );;
   }
 
   public updateContact(id: string , payload: string): Observable<any>{
-    return this.http.put(this.baseUrl + '/contact/' + id, payload, {headers: this.headers}).pipe(
+    return this.http.put(
+      this.baseUrl + '/contact/' + id,
+      payload,
+      {headers: this.headers}
+      ).pipe(
       map( response => response)
     );
   }
@@ -51,5 +73,11 @@ export class ApiService {
     pipe(
       map(response => response)
     );
+  }
+
+  private handleError(deleteHero: string): any {
+    return (p1: any, p2: Observable<any>) => {
+      return undefined;
+    };
   }
 }

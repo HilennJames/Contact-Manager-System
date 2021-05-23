@@ -6,6 +6,10 @@ import {
   updateContact
 }from '../controller/CM.controller.mjs';
 
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const multer = require('multer');
+const upload = multer({ dest: './profiles' })
 
 export const routes = (server) => {
   //All contacts
@@ -17,7 +21,11 @@ export const routes = (server) => {
 
   //Single contact
    server.route('/api/contact')
-      .post((req,res,next) =>{console.log(req.body),next()},addNewContact)
+      .post(upload.single('photoUrl'),function(req,res,next){
+      console.log(req.body.photoUrl['photoUrl'])
+          console.log(req)
+            , next() }
+      ,addNewContact)
 
   //Single ID
   server.route('/api/contact/:contactID')
@@ -28,10 +36,7 @@ export const routes = (server) => {
       .put(updateContact)
 
       //DELETE
-      .delete((res,req , next)=>{
-        console.log(req.body.params)
-        next()
-      }, deleteContactWithID)
+      .delete(deleteContactWithID)
 
 
   /*************** User Routes *********************/

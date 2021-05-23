@@ -9,7 +9,7 @@ import { ApiService } from './shared/api.service';
 import { ContactComponent } from './components/contact/contact.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { AddContactComponent } from './components/add-contact/add-contact.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule , ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from './shared/auth.service';
 import { LoginComponent } from './components/login/login.component';
 import { EditContactComponent } from './components/edit-contact/edit-contact.component';
@@ -29,6 +29,7 @@ import { EditContactComponent } from './components/edit-contact/edit-contact.com
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     CommonModule,
     FormsModule
   ],

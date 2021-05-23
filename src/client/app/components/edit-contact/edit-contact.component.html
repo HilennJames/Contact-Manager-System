@@ -1,5 +1,5 @@
 <div>
-  <form class="edit ui form" #editForm="ngForm"  (ngSubmit)="onSubmit(editForm)">
+  <form  enctype="multipart/form-data"  class="edit ui form" [formGroup]="editForm"   (ngSubmit)="onSubmit()">
   <table  class="ui celled teal table" >
 
     <thead class="ui celled ">
@@ -14,16 +14,17 @@
         <tbody>
               <tr>
                 <td data-label="name"  class="field">
-                  <input placeholder="Jack" name="name" ngModel />
+                  <input [placeholder]="contact.name"  [value]="contact.name"  name="name" formControlName="name" />
                 </td>
                 <td data-label="address" class="field" >
-                  <input placeholder="lesni 51" name="address" ngModel />
+                  <input [placeholder]="contact.address"  [value]="contact.address"  name="address" formControlName="address"  />
                 </td>
                 <td data-label="phone" class="field">
-                  <input placeholder="Jack" name="name" ngModel/>
+                  <input [placeholder]="contact.phone"  [value]="contact.phone" name="name" formControlName="phone" />
                 </td>
                 <td data-label="pic"class="field">
-                  <input placeholder="image" name="name" ngModel />
+                  <div class="image" ><img [src]="contact.photoUrl" height="100" width="75" /></div>
+                  <input  placeholder="upload image" name="name" [value]="contact.photoUrl"  type="file"  formControlName="photoUrl" />
                 </td>
                 <td><button type="submit" class="ui teal button"><i class="save white icon"></i></button></td>
               </tr>

@@ -3,7 +3,7 @@ export class Contact {
   public name: string = null ,
   public address: string = null ,
   public phone: string = null ,
-  public photoUrl: string  = null ,
+  public photoUrl: any[] = null ,
   ) {}
 }
 
@@ -14,7 +14,7 @@ export class ContactResponse extends Contact{
     public name: string = null,
     public address: string = null,
     public phone: string = null,
-    public photoUrl: string = null,
+    public photoUrl: any[] = null,
   ){
     super();
   }

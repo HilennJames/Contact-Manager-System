@@ -2,9 +2,9 @@
   <td data-label="name">{{contact.name}}</td>
   <td data-label="address">{{contact.address}}</td>
   <td data-label="phone">{{contact.phone}}</td>
-  <td data-label="image" height="100"><img [src]="contact.photoUrl" /></td>
+  <td data-label="image"><img [src]="contact.photoUrl" height="100" width="75" /></td>
    <td>
-  <button class="ui teal button" ><a [routerLink]="['/edit',]"  [queryParams]="{_id : contact._id}" ><i class="pencil alternate white icon"></i></a></button>
-     <button class="ui teal button" (click)="delete(contact._id)"><i class="trash alternate white icon"></i></button>
+  <button class="ui teal button" ><a  routerLinkActive="active" [routerLink]="['/edit/:_id']"  [queryParams]="{ _id : contact._id}" ><i class="pencil alternate white icon"></i></a></button>
+  <button class="ui teal button" (click)="delete(contact._id)"><i class="trash alternate white icon"></i></button>
    </td>
 </tr>

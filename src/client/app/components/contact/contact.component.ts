@@ -1,6 +1,6 @@
-import {Component, Input, OnInit, HostBinding, Output , EventEmitter } from '@angular/core';
+import {Component, Input, OnInit } from '@angular/core';
 import {ContactResponse} from '../../core/contact-response';
-import {ApiService} from '../../shared/api.service';
+import { ApiService } from '../../shared/api.service';
 import { Router } from '@angular/router';
 
 
@@ -12,13 +12,13 @@ import { Router } from '@angular/router';
 })
 export class ContactComponent implements OnInit {
   @Input() contact!: ContactResponse;
-  constructor( private apiService: ApiService , public router: Router ,  ) {}
+  constructor(private apiService: ApiService , private router: Router) {}
 
   ngOnInit(): void {
   }
   delete(id: any): any {
-    console.log('btn clicked');
     id = this.contact._id;
-    this.apiService.deleteContact(id);
+    this.apiService.deleteContact(id).subscribe();
+    console.log('btn clicked');
   }
 }

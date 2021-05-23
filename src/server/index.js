@@ -6,13 +6,11 @@ import  { routes } from './routes/CMsystem.routes.mjs';
 import  { authRoutes} from './routes/Authentication.routes.mjs'
 // import { tokenAuthRoutes } from "./routes/tokenMiddleware.routes.mjs";
 
-// import bodyParser from 'body-parser';
 const require = createRequire(import.meta.url);
 require('dotenv').config();
 const path = require('path');
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const cors = require('cors');
-
 
 const server = express();
 const PORT =  3000;
@@ -25,8 +23,8 @@ authRoutes(server);
 //tokenAuthRoutes(server);
 
 server.use(cors());
-server.use(express.static('dist'));
-server.use('/profiles',express.static('dist'));
+server.use(express.static('src'));
+server.use('/server/profiles',express.static('src'));
 server.use(express.static(path.join(__dirname,'profiles')));
 server.use(function (req, res, next)
 {
@@ -48,6 +46,7 @@ server.get('/api',(req, res)=>{
 // });
 
 server.listen(PORT, ()=>{
+  ;
   console.log(`listening on port ${PORT}`)
 })
 
